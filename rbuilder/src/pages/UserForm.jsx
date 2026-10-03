@@ -1,0 +1,34 @@
+import React, { useState } from 'react'
+import Steps from '../components/Steps'
+import Preview from '../components/Preview'
+
+function UserForm() {
+    const[resumeData,setResumeData]=useState({
+      name:"",
+      jobTitle:"",
+      location:"",
+      email:"",
+      phone:"",
+      github:"",
+      linkedin:"",
+      degree:"",
+      university:"",
+      passout:"",
+      skills:[],
+      summary:""
+     })
+  return (
+    <div className='row'>
+      <div className='col-lg-6'><Steps resumeData={resumeData} setResumeData={setResumeData} /></div>
+      <div className='col-lg-6'>
+        {
+          resumeData?.name && <Preview resumeData={resumeData}/>
+        }
+          
+      </div>
+    </div>
+    
+  )
+}
+
+export default UserForm
